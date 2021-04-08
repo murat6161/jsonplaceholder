@@ -1,16 +1,28 @@
+//CUSTOM BUTTON OLUSTURDUK VE HER ERDE KULLANABILIRZ
+
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
-import {themes} from '../styles/Themes'
+import {useTheme} from '../hook/useTheme'
 
-const Button = ({onPress, buttonText}) => {
+export const Button = ({onPress, buttonText, style}) => {
+    const {colors} = useTheme()
     return (
-        <TouchableOpacity style={styles.customButton} onPress={onPress}>
-                 <Text style={styles.textStyle}>{buttonText}</Text>
+        <TouchableOpacity 
+        style={{...styles.customButton,
+            backgroundColor: colors.alt,
+            borderColor: colors.primary,
+            ...style,
+        }
+        
+        } 
+        onPress={onPress}>
+        <Text style={{...styles.textStyle,
+        color: colors.buttonText}}>{buttonText}</Text>
          </TouchableOpacity>
     )
 }
 
-export default Button
+
 
 const styles = StyleSheet.create({
  customButton: {
@@ -22,8 +34,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     margin: 5,
-    backgroundColor: themes.light.colors.alt,
-    borderColor: themes.light.colors.primary,
+    
     
  },
 
@@ -32,6 +43,6 @@ const styles = StyleSheet.create({
      letterSpacing: 0.6,
      textAlign: 'center',
      lineHeight: 22,
-     color: themes.light.colors.buttonText,
+     
  }
 })
