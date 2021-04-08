@@ -16,14 +16,19 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "userInterfaceStyle":"automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "userInterfaceStyle":"light",
     },
+
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+       
+      },
+      "userInterfaceStyle":"dark"
     },
     "web": {
       "favicon": "./assets/favicon.png"
